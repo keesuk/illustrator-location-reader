@@ -11,6 +11,7 @@ function readMap() {
   document.activeLayer = document.layers.getByName('map');
   var mapLayer = document.activeLayer;
   var items = mapLayer.pageItems;
+  var itemsText = mapLayer.textFrames
 
   for(var i = 0; i<items.length; i++){
 

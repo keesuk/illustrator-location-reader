@@ -22,7 +22,7 @@ function readMap() {
 
   // document.close();
   // app.quit();
-  // alert(stations);
+  alert(stations);
 
   return stations;
 };

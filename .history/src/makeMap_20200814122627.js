@@ -13,13 +13,14 @@ var writeStream = fs.createWriteStream(dirNow + "/outputfile.csv");
 
 async function makeMap() {
   var corArr = await runApplescript(`tell application "Adobe Illustrator" to do javascript of file "${jsxPath}" with arguments {"${dirNow}"}`);
-  
+  // corArr.trim();
+  // corArr.replace(/\n$/gm, '')
   stationsCor = corArr.split(','); 
   
-    for (var i = 1; i <= stationsCor.length; i++ ){
-      console.log(stationsCor[i]);
+  //   for (var i = 0; i <= stationsCor.length; i++ ){
+  //     console.log(stationsCor[i]);
     
-  };
+  // };
 
   fastCsv.pipe(writeStream);
   fastCsv.write(stationsCor)

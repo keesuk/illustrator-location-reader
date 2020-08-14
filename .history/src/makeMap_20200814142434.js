@@ -16,7 +16,7 @@ async function makeMap() {
   
   stationsCor = corArr.split(','); 
   
-    for (var i = 1; i <= stationsCor.length; i++ ){
+    for (var i = 0; i <= stationsCor.length; i++ ){
       console.log(stationsCor[i]);
     
   };

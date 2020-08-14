@@ -15,15 +15,16 @@ async function makeMap() {
   var corArr = await runApplescript(`tell application "Adobe Illustrator" to do javascript of file "${jsxPath}" with arguments {"${dirNow}"}`);
   
   stationsCor = corArr.split(','); 
+  stationsCor.replace(/(?:\r\n|\r|\n)/g, '<br>');
   
-    for (var i = 1; i <= stationsCor.length; i++ ){
-      console.log(stationsCor[i]);
+  //   for (var i = 0; i <= stationsCor.length; i++ ){
+  //     console.log(stationsCor[i]);
     
-  };
+  // };
 
-  fastCsv.pipe(writeStream);
-  fastCsv.write(stationsCor)
-  fastCsv.end();
+  // fastCsv.pipe(writeStream);
+  // fastCsv.write(stationsCor)
+  // fastCsv.end();
 
   return;
 };

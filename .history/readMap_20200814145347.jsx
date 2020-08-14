@@ -18,6 +18,7 @@ function readMap() {
       var itemPosition = items[i].position;
       stations.push(itemName);
       stations.push(itemPosition);
+      stations.push(itemsText);
     }
 
   // document.close();

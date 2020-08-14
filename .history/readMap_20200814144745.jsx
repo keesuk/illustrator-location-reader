@@ -11,6 +11,8 @@ function readMap() {
   document.activeLayer = document.layers.getByName('map');
   var mapLayer = document.activeLayer;
   var items = mapLayer.pageItems;
+  var itemsText = activeItem.textRange.characterAttributes.size
+
 
   for(var i = 0; i<items.length; i++){
 
@@ -18,6 +20,7 @@ function readMap() {
       var itemPosition = items[i].position;
       stations.push(itemName);
       stations.push(itemPosition);
+      stations.push(itemsText);
     }
 
   // document.close();

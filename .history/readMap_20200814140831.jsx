@@ -12,9 +12,11 @@ function readMap() {
   var mapLayer = document.activeLayer;
   var items = mapLayer.pageItems;
 
+  $.writeln(items[1].contents);
+
   for(var i = 0; i<items.length; i++){
 
-      var itemName = items[i].contents.replace(/[\r\n]+/g, "<br/>");
+      var itemName = items[i].contents;
       var itemPosition = items[i].position;
       stations.push(itemName);
       stations.push(itemPosition);
@@ -22,7 +24,7 @@ function readMap() {
 
   // document.close();
   // app.quit();
-  // alert(stations);
+  alert(stations);
 
   return stations;
 };

@@ -12,12 +12,16 @@ function readMap() {
   var mapLayer = document.activeLayer;
   var items = mapLayer.pageItems;
 
+
   for(var i = 0; i<items.length; i++){
+      var active = item[i].textRange.characterAttributes;
 
       var itemName = items[i].contents.replace(/[\r\n]+/g, "<br/>");
       var itemPosition = items[i].position;
+      var itemText = active.size;
       stations.push(itemName);
       stations.push(itemPosition);
+      stations.push(itemsText);
     }
 
   // document.close();

@@ -14,9 +14,11 @@ var writeStream = fs.createWriteStream(dirNow + "/outputfile.csv");
 async function makeMap() {
   var corArr = await runApplescript(`tell application "Adobe Illustrator" to do javascript of file "${jsxPath}" with arguments {"${dirNow}"}`);
   
+  corArr.toString();
+  corArr.replace(/\r\n/g,'<br/>');
   stationsCor = corArr.split(','); 
   
-    for (var i = 1; i <= stationsCor.length; i++ ){
+    for (var i = 0; i <= stationsCor.length; i++ ){
       console.log(stationsCor[i]);
     
   };
