@@ -7,29 +7,38 @@ const fs = require('fs');
 console.log(`배열 생성 시작`);
 
 var stationsCor = [];
-var tmp = [];
 var dirNow = path.dirname(require.main.filename);
-var ws = fs.createWriteStream(dirNow + "/seoul.csv");
+var fastCsv = csv.createWriteStream();
+var writeStream = fs.createWriteStream(dirNow + "/outputfile.csv");
 
 async function makeMap() {
   var corArr = await runApplescript(`tell application "Adobe Illustrator" to do javascript of file "${jsxPath}" with arguments {"${dirNow}"}`);
   
-  stationsCor = corArr.split(',')
-  stationsCor.toString();
+  corArr.split(',');
+  
+  for(var i = 0; i <= corArr.length/3 ; i++){
+    corArr.splice(i*3, 0, /[\r\n]+/)
+  }
   
   Array.prototype.division = function (n) {
     var arr = this;
     var len = arr.length;
     var cnt = Math.floor(len/n) + (Math.floor(len% n)> 0 ? 1 : 0);
+    var tmp = [];
 
     for (var i = 0; i < cnt; i++){
       tmp.push(arr.splice(0, n));
     }
-    tmp.unshift(['station','xCor','yCor']);
     return tmp;
   }
+
   stationsCor.division(3);
-  csv.write(tmp, {headers:true}).pipe(ws);
+
+  console.log(stationsCor);
+
+  fastCsv.pipe(writeStream);
+  fastCsv.write(stationsCor)
+  fastCsv.end();
 
   return;
 };

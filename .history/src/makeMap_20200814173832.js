@@ -9,7 +9,7 @@ console.log(`배열 생성 시작`);
 var stationsCor = [];
 var tmp = [];
 var dirNow = path.dirname(require.main.filename);
-var ws = fs.createWriteStream(dirNow + "/seoul.csv");
+var ws = fs.createWriteStream(dirNow + "/outputfile.csv");
 
 async function makeMap() {
   var corArr = await runApplescript(`tell application "Adobe Illustrator" to do javascript of file "${jsxPath}" with arguments {"${dirNow}"}`);
@@ -25,10 +25,11 @@ async function makeMap() {
     for (var i = 0; i < cnt; i++){
       tmp.push(arr.splice(0, n));
     }
-    tmp.unshift(['station','xCor','yCor']);
     return tmp;
   }
+
   stationsCor.division(3);
+
   csv.write(tmp, {headers:true}).pipe(ws);
 
   return;

@@ -25,7 +25,7 @@ async function makeMap() {
     for (var i = 0; i < cnt; i++){
       tmp.push(arr.splice(0, n));
     }
-    tmp.unshift(['station','xCor','yCor']);
+    tmp.unshift([['역명','x값','y값']]);
     return tmp;
   }
   stationsCor.division(3);

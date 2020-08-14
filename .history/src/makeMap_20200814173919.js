@@ -25,7 +25,6 @@ async function makeMap() {
     for (var i = 0; i < cnt; i++){
       tmp.push(arr.splice(0, n));
     }
-    tmp.unshift(['station','xCor','yCor']);
     return tmp;
   }
   stationsCor.division(3);

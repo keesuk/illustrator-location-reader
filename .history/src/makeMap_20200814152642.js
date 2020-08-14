@@ -7,29 +7,36 @@ const fs = require('fs');
 console.log(`배열 생성 시작`);
 
 var stationsCor = [];
-var tmp = [];
 var dirNow = path.dirname(require.main.filename);
-var ws = fs.createWriteStream(dirNow + "/seoul.csv");
+var fastCsv = csv.createWriteStream();
+var writeStream = fs.createWriteStream(dirNow + "/outputfile.csv");
 
 async function makeMap() {
   var corArr = await runApplescript(`tell application "Adobe Illustrator" to do javascript of file "${jsxPath}" with arguments {"${dirNow}"}`);
   
-  stationsCor = corArr.split(',')
-  stationsCor.toString();
+  stationsCor = corArr.split(',').division(3); 
   
-  Array.prototype.division = function (n) {
+  function division(n) {
     var arr = this;
-    var len = arr.length;
+    var len = arr.lenght;
     var cnt = Math.floor(len/n) + (Math.floor(len% n)> 0 ? 1 : 0);
+    var tmp = [];
 
     for (var i = 0; i < cnt; i++){
       tmp.push(arr.splice(0, n));
     }
-    tmp.unshift(['station','xCor','yCor']);
     return tmp;
   }
-  stationsCor.division(3);
-  csv.write(tmp, {headers:true}).pipe(ws);
+
+
+    // for (var i = 1; i <= stationsCor.length; i++ ){
+    //   document.split("<br>");
+    // };
+
+  console.log(stationsCor);
+  // fastCsv.pipe(writeStream);
+  // fastCsv.write(stationsCor)
+  // fastCsv.end();
 
   return;
 };

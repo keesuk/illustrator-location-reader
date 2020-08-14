@@ -7,7 +7,7 @@ const fs = require('fs');
 console.log(`배열 생성 시작`);
 
 var stationsCor = [];
-var tmp = [];
+var tmp = ['역명','x값','y값'];
 var dirNow = path.dirname(require.main.filename);
 var ws = fs.createWriteStream(dirNow + "/seoul.csv");
 
@@ -25,7 +25,6 @@ async function makeMap() {
     for (var i = 0; i < cnt; i++){
       tmp.push(arr.splice(0, n));
     }
-    tmp.unshift(['station','xCor','yCor']);
     return tmp;
   }
   stationsCor.division(3);

@@ -14,7 +14,7 @@ function readMap() {
 
   for(var i = 0; i<items.length; i++){
       var itemName = items[i].contents.replace(/[\r\n]+/g, "<br/>");
-      var itemPosition = items[i].position;
+      var itemPosition = items[i].position + /\n/;
       stations.push(itemName);
       stations.push(itemPosition);
     }
