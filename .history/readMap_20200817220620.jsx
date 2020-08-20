@@ -13,7 +13,7 @@ function readMap() {
   var items = mapLayer.pageItems;
 
   for(var i = 0; i<items.length; i++){
-      var itemName = items[i].contents.replace(/[\r\n]+/g, 'n');
+      var itemName = items[i].contents.replace(/[\r\n]+/g, '<br>');
       var itemPosition = items[i].position;
       stations.push(itemName);
       stations.push(itemPosition);
