@@ -1,0 +1,38 @@
+
+  for(var i = 0; i<items.length; i++){
+      var itemLayer = items[i].pageItems
+      var itemName = itemLayer[0].contents.replace(/[\r\n]+/g, '');
+      items[i].name = itemName;
+    }
+
+
+
+    console.log(`배열 생성 시작`);
+
+var stationsCor = [];
+var tmp = [];
+var dirNow = path.dirname(require.main.filename);
+var ws = fs.createWriteStream(dirNow + "/seoul.csv");
+
+async function makeMap() {
+  var corArr = await runApplescript(`tell application "Adobe Illustrator" to do javascript of file "${mapPath}" with arguments {"${dirNow}"}`);
+  
+  stationsCor = corArr.split(',')
+  stationsCor.toString();
+  
+  Array.prototype.division = function (n) {
+    var arr = this;
+    var len = arr.length;
+    var cnt = Math.floor(len/n) + (Math.floor(len% n)> 0 ? 1 : 0);
+
+    for (var i = 0; i < cnt; i++){
+      tmp.push(arr.splice(0, n));
+    }
+    tmp.unshift(['station','xCor','yCor']);
+    return tmp;
+  }
+  stationsCor.division(3);
+  csv.write(tmp, {headers:true}).pipe(ws);
+
+  return;
+};

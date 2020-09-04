@@ -15,9 +15,9 @@ function readMap() {
   for(var i = 0; i<items.length; i++){
       var groupItemName = items[i].name
       var itemLayer = items[i].pageItems
-      // var itemPosition = itemLayer[0].position
+      var itemPosition = itemLayer[0].position
       stations.push(groupItemName);
-      // stations.push(itemPosition);
+      stations.push(itemPosition);
     }
 
   return stations;

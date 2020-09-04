@@ -1,0 +1,6 @@
+
+  for(var i = 0; i<items.length; i++){
+      var itemLayer = items[i].pageItems
+      var itemName = itemLayer[0].contents.replace(/[\r\n]+/g, '');
+      items[i].name = itemName;
+    }
