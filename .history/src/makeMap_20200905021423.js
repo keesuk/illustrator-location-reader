@@ -9,8 +9,8 @@ console.log(`배열 생성 시작`);
 
 var csvData =[];
 var dirNow = path.dirname(require.main.filename);
-fs.createReadStream(dirNow + "/PseoulStation.csv")
-  .pipe(parse({delimiter: ':'}))
+fs.createReadStream(dirNow + "/seoulStation.csv")
+  .pipe(parse())
   .on('data', function(csvrow) {
     console.log(csvrow);
     csvData.push(csvrow);

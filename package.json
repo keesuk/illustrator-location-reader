@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csv-parse": "^4.12.0",
     "fast-csv": "^2.4.1",
     "run-applescript": "^3.2.0",
     "selenium-webdriver": "^4.0.0-alpha.1"

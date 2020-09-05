@@ -4,7 +4,7 @@ csvData = arguments[1];
 var AiFile = File(projectPath + "/Aifile/map.ai");
 var stations = [];
 
-alert(csvData);
+alert(projectPath);
 
 // readMap();
 

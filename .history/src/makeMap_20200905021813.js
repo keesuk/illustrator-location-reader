@@ -13,7 +13,7 @@ fs.createReadStream(dirNow + "/PseoulStation.csv")
   .pipe(parse({delimiter: ':'}))
   .on('data', function(csvrow) {
     console.log(csvrow);
-    csvData.push(csvrow);
+    csvData.push(concat(csvrow));
   })
   .on('end', function() {
     console.log(csvData);

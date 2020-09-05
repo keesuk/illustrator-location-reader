@@ -23,5 +23,5 @@ alert(csvData);
 //       // stations.push(itemPosition);
 //     }
 
-//   return stations;
-// };
+  return stations;
+};
